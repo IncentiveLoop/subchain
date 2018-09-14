@@ -1,0 +1,36 @@
+{
+  "name": "subchain",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/cli.js",
+  "bin": {
+    "subchain": "./dist/cli.js"
+  },
+  "scripts": {
+    "start": "node dist/cli.js -r https://ropsten.infura.io/ -m 0xc9ec7da86f0bde73345ba04df4613b0b70612a54",
+    "dev": "nodemon subchain/cli.js --exec babel-node -r https://ropsten.infura.io/ -m 0xc9ec7da86f0bde73345ba04df4613b0b70612a54",
+    "build": "babel subchain -d dist --copy-files",
+    "truffle:compile": "truffle compile",
+    "truffle:deploy": "npm run truffle:compile && truffle migrate --network local --reset",
+    "remix": "remixd -s ./contracts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "nodemon": "^1.11.0",
+    "remixd": "^0.1.8-alpha.5",
+    "truffle": "^4.1.14"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.23.0",
+    "cli-progress": "^2.1.0",
+    "ethereumjs-blockstream": "^5.0.0",
+    "ganache-core": "^2.2.1",
+    "web3": "1.0.0-beta.35",
+    "yargs": "^12.0.2"
+  }
+}
